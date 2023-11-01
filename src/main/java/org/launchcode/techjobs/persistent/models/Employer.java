@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 public class Employer extends AbstractEntity {
 
     @NotBlank (message = "Location is required.")
-    @Size (min = 3, max = 50, message = "Location must include between 3 and 50 characters")
+    @Size (min = 2, max = 50, message = "Location must include between 3 and 50 characters")
     private String location;
 
     public Employer(String location) {

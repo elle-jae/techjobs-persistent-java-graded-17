@@ -7,6 +7,9 @@
 
 --Part 2
 
+SELECT location
+FROM employer;
+
 --Part 3
 
 --Part 4
