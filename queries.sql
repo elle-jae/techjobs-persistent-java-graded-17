@@ -7,9 +7,18 @@
 
 --Part 2
 
-SELECT location
-FROM employer;
+SELECT name
+FROM employer
+WHERE location="St. Louis";
 
 --Part 3
 
+DROP TABLE job;
+
+
 --Part 4
+
+SELECT name
+FROM skill
+INNER JOIN job ON skill.id = job.job_id
+WHERE job.
