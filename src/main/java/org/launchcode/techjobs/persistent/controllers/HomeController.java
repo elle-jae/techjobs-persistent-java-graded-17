@@ -35,7 +35,7 @@ public class HomeController {
     @RequestMapping("/")
     public String index(Model model) {
 
-        model.addAttribute("title", "MyJobs");
+        model.addAttribute("title", jobRepository.findAll());
 
         return "index";
     }
@@ -58,15 +58,16 @@ public class HomeController {
         }
         Optional<Employer> result = employerRepository.findById(employerId);
         if (result.isPresent()) {
-            Employer newEmployer = result.get();
+            Employer newEmployer = (Employer) result.get();
             newJob.setEmployer(newEmployer);
         } else {
             newJob.setEmployer(new Employer());
+
         }
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-        if (skillObjs.contains(skills)) {
+////        if (skillObjs.contains(skills)) {
             newJob.setSkills(skillObjs);
-        }
+////        }
 
         jobRepository.save(newJob);
         return "redirect:";
