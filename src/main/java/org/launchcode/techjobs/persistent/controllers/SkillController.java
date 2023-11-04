@@ -22,7 +22,7 @@ public class SkillController {
 
     @GetMapping("/")
     public String index (Model model) {
-        model.addAttribute("jobs", skillRepository.findAll());
+        model.addAttribute("skills", skillRepository.findAll());
         return "skills/index";
     }
 
@@ -49,7 +49,7 @@ public class SkillController {
 
         Optional optSkill = skillRepository.findById(skillId);
         if (optSkill.isPresent()) {
-            Skill skill = (Skill) skillRepository.findAll();
+            Skill skill = (Skill) optSkill.get();
             model.addAttribute("skill", skill);
             return "skills/view";
         } else {
